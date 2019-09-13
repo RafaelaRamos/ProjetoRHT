@@ -47,8 +47,8 @@ public class Funcionario {
     private String CertificadoReservista;
     private String pnE;
     private String tipoSanguineo;
-    @OneToOne
-    private Endereco endereco;
+    /*@OneToOne
+    private Endereco endereco; */
     @OneToMany
     private List<Dependente> dependentes;
 
