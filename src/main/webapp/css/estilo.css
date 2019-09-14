@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 de set de 2019, 15:44:34
+    Author     : amanda
+*/
+.hero.is-fullheight {
+    overflow: hidden;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: .8;
+    background: #000000;
+    background: #207dff;
+    background: -moz-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #207dff), color-stop(100%, #a16ae8));
+    background: -webkit-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    background: -o-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    background: -ms-linear-gradient(left, #207dff 0%, #a16ae8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#207dff), to(#a16ae8));
+    background: linear-gradient(to right, #207dff 0%, #a16ae8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207dff', endColorstr='#a16ae8', GradientType=1 );
+}

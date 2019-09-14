@@ -1,6 +1,6 @@
-package model.service;
+package br.edu.ifpb.model.service;
 
-import model.domain.Usuario;
+import br.edu.ifpb.model.domain.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

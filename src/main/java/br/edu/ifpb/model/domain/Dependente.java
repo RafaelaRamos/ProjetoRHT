@@ -1,4 +1,4 @@
-package  main.java.model.domain;
+package  br.edu.ifpb.model.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package main.java.documentos;
+package br.edu.ifpb.documentos;
 
 
 import lombok.AllArgsConstructor;

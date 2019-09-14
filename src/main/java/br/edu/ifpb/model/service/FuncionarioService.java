@@ -1,6 +1,6 @@
 
-package main.java.model.service;
-import main.java.model.domain.Funcionario;
+package br.edu.ifpb.model.service;
+import br.edu.ifpb.model.domain.Funcionario;
 
 
 import javax.persistence.EntityManager;

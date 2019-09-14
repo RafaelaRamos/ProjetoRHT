@@ -1,8 +1,8 @@
-package main.java.controller;
+package br.edu.ifpb.controller;
 
-import main.java.model.domain.Funcionario;
-import main.java.model.service.FuncionarioIF;
-import main.java.model.service.FuncionarioService;
+import br.edu.ifpb.model.domain.Funcionario;
+import br.edu.ifpb.model.service.FuncionarioIF;
+import br.edu.ifpb.model.service.FuncionarioService;
 
 
 public class main {

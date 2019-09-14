@@ -1,5 +1,7 @@
-package main.java.documentos;
+package br.edu.ifpb.documentos;
 
+import br.edu.ifpb.documentos.Documento;
+import br.edu.ifpb.documentos.DocumentoIF;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import javax.persistence.EntityManager;
@@ -7,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import java.io.*;
+import javax.servlet.http.Part;
 
 @AllArgsConstructor
 @NoArgsConstructor

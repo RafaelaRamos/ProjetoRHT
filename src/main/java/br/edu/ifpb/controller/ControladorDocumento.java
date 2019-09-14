@@ -1,12 +1,15 @@
-package main.java.controller;
+package br.edu.ifpb.controller;
 
 import lombok.Getter;
 import lombok.Setter;
-import main.java.documentos.Documento;
-import main.java.documentos.DocumentoIF;
+import br.edu.ifpb.documentos.Documento;
+import br.edu.ifpb.documentos.DocumentoIF;
+import br.edu.ifpb.documentos.DocPersisti;
 
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.servlet.http.Part;
 
 
 @Getter
@@ -15,7 +18,7 @@ import javax.faces.bean.ManagedBean;
 @ViewScoped
 public class ControladorDocumento {
 
-    private DocumentoIF doc = DocPersisti();
+    private DocumentoIF doc = new DocPersisti();
     private Part arquivo;
     private Documento documento;
 

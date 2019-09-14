@@ -1,7 +1,7 @@
-package main.java.model.service;
+package br.edu.ifpb.model.service;
 
 
-import main.java.model.domain.Funcionario;
+import br.edu.ifpb.model.domain.Funcionario;
 
 import java.util.List;
 
