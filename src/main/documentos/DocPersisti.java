@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.servlet.http.Part;
+
 import java.io.*;
 
 @AllArgsConstructor

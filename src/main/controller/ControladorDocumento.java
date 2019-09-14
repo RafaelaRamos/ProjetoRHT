@@ -7,15 +7,15 @@ import main.java.documentos.DocumentoIF;
 
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.servlet.http.Part;
+
+
 @Getter
 @Setter
-@ManagedBean
+@ManagedBean(name ="controlador")
 @ViewScoped
 public class ControladorDocumento {
 
-    private DocumentoIF doc;
+    private DocumentoIF doc = DocPersisti();
     private Part arquivo;
     private Documento documento;
 
