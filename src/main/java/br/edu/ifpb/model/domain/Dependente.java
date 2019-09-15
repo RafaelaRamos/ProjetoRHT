@@ -1,5 +1,6 @@
 package  br.edu.ifpb.model.domain;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Date;
 @Getter
 @Entity
 
-public class Dependente {
+public class Dependente implements Serializable{
     @Id
     @GeneratedValue
     private long id;

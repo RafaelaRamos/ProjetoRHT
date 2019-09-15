@@ -16,6 +16,9 @@ and open the template in the editor.
      -ms-flex-align: center;
         align-items: center !important;
 }
+.hero{
+    position: relative;
+}
 .hero.is-fullheight {
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,6 +49,10 @@ a > .card:hover{
     justify-content: center;
     display: flex;
     height: 200px;
+}
+
+.card-box{
+    margin-top: -10rem !important;
 }
 
 .overlay {

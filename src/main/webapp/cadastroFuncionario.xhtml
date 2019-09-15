@@ -77,17 +77,16 @@ and open the template in the editor.
 
         <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
             <div class="container">
-
-                <div class="box">
-                    <article class="media">
-                        <div class="media-left">
-                            <figure class="image is-128x128">
-                                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <h:form>
-                                <h:inputHidden id="ID"/>
+                
+                <h:form>
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-128x128">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
+                                </figure>
+                            </div>
+                            <div class="media-content">
                                 <div class="field">
                                     <label class="label">Nome</label>
                                     <div class="control">
@@ -100,7 +99,7 @@ and open the template in the editor.
                                         <h:inputText class="input" value="#{controladorFuncionario.funcionario.filiacao}"/>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -141,7 +140,7 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -181,7 +180,7 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -223,7 +222,7 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -250,7 +249,7 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -277,7 +276,7 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns">
                                     <div class="column">
                                         <div class="field">
@@ -296,17 +295,17 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="columns has-text-left">
                                     <div class="column is-2">
                                         <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}"/>
                                     </div>
                                 </div>
-                            </h:form>
-                        </div>
-                    </article>
-                </div>
 
+                            </div>
+                        </article>
+                    </div>
+                </h:form>
             </div>
         </section>
     </body>

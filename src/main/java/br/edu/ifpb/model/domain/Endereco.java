@@ -1,4 +1,5 @@
 package  br.edu.ifpb.model.domain;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-public class Endereco {
+public class Endereco implements Serializable{
     @Id
     @GeneratedValue
     private long id;

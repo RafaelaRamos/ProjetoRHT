@@ -102,37 +102,36 @@ and open the template in the editor.
         
         <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
             <div class="container">
-                
-                <div class="box">
-                    <article class="media">
-                        <div class="media-left">
-                            <figure class="image is-128x128">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
-                            </figure>
-                        </div>
-                        <c:forEach var="funcionario" items="#{controladorFuncionario.listarPorCargos()}">
-                        <div class="media-content">
-                            <div class="content">
-                                <p>
-                                    <strong>#{controladorFuncionario.funcionario.nome}</strong> <small>#{controladorFuncionario.funcionario.cargo}</small>
-                                    <br/>
-                                    Sobre: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                                </p>
+                <c:forEach var="funcionario" items="#{controladorFuncionario.listarFuncionarios()}">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-128x128">
+                                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
+                                </figure>
                             </div>
-                            <nav class="level is-mobile">
-                                <div class="level-left">
-                                    <a class="level-item" aria-label="reply">
-                                        <h:form>
-                                            <h:commandButton class="button is-link" value="ler mais"/>
-                                        </h:form>
-                                    </a>
+
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>#{funcionario.nome}</strong> <small>#{funcionario.cargo}</small>
+                                        <br/>
+                                        Sobre: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                                    </p>
                                 </div>
-                            </nav>
-                        </div>
-                            </c:forEach>
-                    </article>
-                </div>
-                
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item" aria-label="reply">
+                                            <h:form>
+                                                <h:commandButton class="button is-link" value="ler mais"/>
+                                            </h:form>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                </c:forEach>
             </div>
         </section>
     </body>

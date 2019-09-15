@@ -1,5 +1,6 @@
 package br.edu.ifpb.model.domain;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Usuario {
+public class Usuario implements Serializable{
     @Id
     private String usuario;
     private String senha;

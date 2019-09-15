@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+        <link rel="stylesheet" href="css/bulma-pricetable.min.css"/>
+        <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/animate.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        
+        <link rel="stylesheet" href="css/estilo.css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid px-md-4	">
+                <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="home.xhtml" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="cadastroFuncionario.xhtml" class="nav-link">Cadastro Funcionario</a></li>
+                        <li class="nav-item active"><a href="listaFuncionarios.xhtml" class="nav-link">Listagem</a></li>
+                        <h:form class="nav-link">
+                            <li class="nav-item active">
+                                <h:commandLink class="nav-link has-text-warning">Sair</h:commandLink>
+                            </li>
+                        </h:form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END nav -->
+        
+        <div class="hero is-medium" style="background-image: url(images/bg_1.jpg);">
+            <div class="overlay"></div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="columns is-hcentered ftco-animate fadeInUp ftco-animated">
+                        <div class="column">
+                            <p class="subtitle has-text-white">Pode escrever alguma coisa pra ficar legal</p>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="section bg-light">
+            <div class="container">
+                <div class="card-box">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="columns">
+                                <div class=" column is-2">
+                                    <figure class="image is-128x128">
+                                        <img class="image" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
+                                    </figure>
+                                </div>
+                                <div class="column">
+                                    <h4>#{controladorFuncionario.funcionario.nome}</h4>
+                                    <p>#{controladorFuncionario.funcionario.genero}, #{controladorFuncionario.funcionario.nacionalidade}, natural de #{controladorFuncionario.funcionario.naturalidade}, 
+                                        #{controladorFuncionario.funcionario.estadoCivil} - idade | #{controladorFuncionario.funcionario.rua}, #{controladorFuncionario.funcionario.numero}, #{controladorFuncionario.funcionario.bairro}, 
+                                        #{controladorFuncionario.funcionario.cidade}</p>
+                                    
+                                    <div class="columns">
+                                        <div class="column">
+                                            <p>CPF: #{controladorFuncionario.funcionario.cpf} <br/>
+                                               Telefone: #{controladorFuncionario.funcionario.telefone}</p>
+                                        </div>
+                                        <div class="column">
+                                            <p>RG: #{controladorFuncionario.funcionario.rg}<br/>
+                                                Escolaridade: #{controladorFuncionario.funcionario.escolaridade}</p>
+                                        </div>
+                                        <div class="column">
+                                            <p>Titulo Eleitoral: #{controladorFuncionario.funcionario.tituloEleitoral}<br/>
+                                                Reservista: #{controladorFuncionario.funcionario.certificadoReservista}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="columns">
+                                <div class="column">
+                                    <p>Data de admissao: #{controladorFuncionario.funcionario.dataDeAdmissao}<br/>
+                                        Cargo: #{controladorFuncionario.funcionario.cargo}<br/>
+                                        Pasep/Pis: #{controladorFuncionario.funcionario.pasepPis}<br/>
+                                        Filiaçao: #{controladorFuncionario.funcionario.filiacao}</p>
+                                </div>
+                                <div class="column">
+                                    <p>Jornada de Trabalho: #{controladorFuncionario.funcionario.jornadaDeTrabalho}<br/>
+                                        Departamento: #{controladorFuncionario.funcionario.departamento}<br/>
+                                        CTPS: #{controladorFuncionario.funcionario.ctps}</p>
+                                </div>
+                                <div class="column">
+                                    <p>Ferias: #{controladorFuncionario.funcionario.ferias}<br/>
+                                        Remuneraçao: #{controladorFuncionario.funcionario.remuneracao}<br/>
+                                        pnE: #{controladorFuncionario.funcionario.pnE}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

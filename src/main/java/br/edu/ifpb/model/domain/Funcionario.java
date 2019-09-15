@@ -1,6 +1,7 @@
 
 
 package  br.edu.ifpb.model.domain;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.Timer;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Funcionario {
+public class Funcionario implements Serializable{
     @Id
     @GeneratedValue
     private long id;
@@ -29,7 +30,7 @@ public class Funcionario {
     private String genero;
     private String naturalidade;
     private String nacionalidade;
-    private  LocalDate dataDeAdmissao;
+    private LocalDate dataDeAdmissao;
     private LocalDateTime jornadaDeTrabalho;
     private String ctps;
     private String pasepPis;
