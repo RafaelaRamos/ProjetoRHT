@@ -11,7 +11,7 @@ public interface FuncionarioIF {
 
     public void remover(int id);
 
-    public Funcionario buscar(int id);
+    public Funcionario buscar(String cpf);
 
     public void atualizar(Funcionario funcionario);
 

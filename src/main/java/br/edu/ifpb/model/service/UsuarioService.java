@@ -12,17 +12,22 @@ public class UsuarioService {
     EntityManager em = Persistence.createEntityManagerFactory("RHT").createEntityManager();
 
 
-    public Usuario autenticar(String usuario, String senha) {
+    public Boolean autenticar(String usuario, String senha) {
         Usuario user = new Usuario();
-
+        usuario= "'"+ usuario +"'";
+        senha= "'"+ senha +"'";
         try {
-            Query q = em.createQuery("Select u from Usuario u Where u.usuario = " + usuario + "u.senha =" + senha);
+            Query q = em.createQuery("Select u from Usuario u Where u.usuario = " + usuario + " and u.senha =" + senha);
             user = (Usuario) q.getSingleResult();
-
+            if(user!=null){
+            
+            return true;
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
         }
-        return user;
+        return true;
     }
 
 
