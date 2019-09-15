@@ -24,7 +24,7 @@ public class ControladorUsuario {
         if (us.autenticar(email, senha)) {
             context.getExternalContext().getSessionMap().put("usuario", email);
             try {
-                context.getExternalContext().redirect("index.xhtml");
+                context.getExternalContext().redirect("home.xhtml");
             } catch (IOException e) {
             }
         } else {
@@ -38,7 +38,7 @@ public class ControladorUsuario {
         FacesContext context = FacesContext.getCurrentInstance();
         context.getExternalContext().invalidateSession();
         try {
-            context.getExternalContext().redirect("login.xhtml");
+            context.getExternalContext().redirect("index.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }

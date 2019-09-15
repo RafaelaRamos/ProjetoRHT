@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -109,10 +110,11 @@ and open the template in the editor.
                                 <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
                             </figure>
                         </div>
+                        <c:forEach var="funcionario" items="#{controladorFuncionario.listarPorCargos()}">
                         <div class="media-content">
                             <div class="content">
                                 <p>
-                                    <strong>John Smith</strong> <small>IDADE</small>
+                                    <strong>#{controladorFuncionario.funcionario.nome}</strong> <small>#{controladorFuncionario.funcionario.cargo}</small>
                                     <br/>
                                     Sobre: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                                 </p>
@@ -127,6 +129,7 @@ and open the template in the editor.
                                 </div>
                             </nav>
                         </div>
+                            </c:forEach>
                     </article>
                 </div>
                 

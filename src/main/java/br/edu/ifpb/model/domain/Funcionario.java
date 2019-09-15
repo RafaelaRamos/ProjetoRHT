@@ -1,6 +1,8 @@
 
 
 package  br.edu.ifpb.model.domain;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,15 +25,12 @@ public class Funcionario {
     private String nome;
     private String foto;
     private String filiacao;
-    @Temporal(TemporalType.DATE)
-    private Date dataDeNascimento;
+    private LocalDate dataDeNascimento;
     private String genero;
     private String naturalidade;
     private String nacionalidade;
-    @Temporal(TemporalType.DATE)
-    private  Date dataDeAdmissao;
-    //@Temporal(TemporalType.TIME)
-   // private Time jornadaDeTrabalho;
+    private  LocalDate dataDeAdmissao;
+    private LocalDateTime jornadaDeTrabalho;
     private String ctps;
     private String pasepPis;
     private String cargo;
@@ -47,8 +46,10 @@ public class Funcionario {
     private String CertificadoReservista;
     private String pnE;
     private String tipoSanguineo;
-    /*@OneToOne
-    private Endereco endereco; */
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
     @OneToMany
     private List<Dependente> dependentes;
 

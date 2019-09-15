@@ -50,7 +50,7 @@ and open the template in the editor.
                         <li class="nav-item"><a href="listaFuncionarios.xhtml" class="nav-link">Listagem</a></li>
                         <h:form class="nav-link">
                             <li class="nav-item active">
-                                <h:commandLink class="nav-link has-text-warning">Sair</h:commandLink>
+                                <h:commandLink class="nav-link has-text-warning" action="#{controladorLogin.logout()}">Sair</h:commandLink>
                             </li>
                         </h:form>
                     </ul>
@@ -91,13 +91,13 @@ and open the template in the editor.
                                 <div class="field">
                                     <label class="label">Nome</label>
                                     <div class="control">
-                                        <h:inputText class="input"/>
+                                        <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label class="label">Filiaçao</label>
                                     <div class="control">
-                                        <h:inputText class="input"/>
+                                        <h:inputText class="input" value="#{controladorFuncionario.funcionario.filiacao}"/>
                                     </div>
                                 </div>
                                 
@@ -106,7 +106,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Data de Nascimento</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.dataDeNascimento}" converter="localDateConverter" />
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Naturalidade</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.naturalidade}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Nacionalidade</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.nacionalidade}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@ and open the template in the editor.
                                             <label class="label">Genero</label>
                                             <p class="control">
                                                 <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.genero}"> 
                                                         <f:selectItem itemValue = "feminino" itemLabel = "Feminino" /> 
                                                         <f:selectItem itemValue = "masculino" itemLabel = "Masculino" /> 
                                                         <f:selectItem itemValue = "outro" itemLabel = "Outro" /> 
@@ -147,7 +147,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">RG</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value ="#{controladorFuncionario.funcionario.rg}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">CPF</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.cpf}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@ and open the template in the editor.
                                             <label class="label">Estado Civil</label>
                                             <p class="control">
                                                 <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.estadoCivil}" > 
                                                         <f:selectItem itemValue = "solteiro" itemLabel = "Solteiro" /> 
                                                         <f:selectItem itemValue = "casado" itemLabel = "Casado" />
                                                     </h:selectOneMenu> 
@@ -176,7 +176,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Telefone</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.telefone}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Titulo Eleitoral</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.tituloEleitoral}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -195,7 +195,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Reservista</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.certificadoReservista}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@ and open the template in the editor.
                                             <label class="label">Escolaridade</label>
                                             <p class="control">
                                                 <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.escolaridade}"> 
                                                         <f:selectItem itemValue = "SuperioCompleto" itemLabel = "Superior Completo" /> 
                                                         <f:selectItem itemValue = "SuperioIncompleto" itemLabel = "Superior Incompleto" /> 
                                                         <f:selectItem itemValue = "FundamentalCompleto" itemLabel = "Fundamental Completo" />
@@ -218,7 +218,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Tipo sanguineo</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.tipoSanguineo}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Cargo</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.cargo}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -237,7 +237,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Departamento</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.departamento}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +245,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Data de admissao</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.dataDeAdmissao}"  converter="localDateConverter"/>
                                             </div>
                                         </div>
                                     </div>
@@ -256,7 +256,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Pasep/Pis</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.pasepPis}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -264,15 +264,15 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">CTPS</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="field">
-                                            <label class="label">PNE</label>
+                                            <label class="label">PcD</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.pnE}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +283,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Ferias</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input"  value="#{controladorFuncionario.funcionario.ferias}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -291,7 +291,7 @@ and open the template in the editor.
                                         <div class="field">
                                             <label class="label">Remuneraçao</label>
                                             <div class="control">
-                                                <h:inputText class="input"/>
+                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.remuneracao}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -299,7 +299,7 @@ and open the template in the editor.
                                 
                                 <div class="columns has-text-left">
                                     <div class="column is-2">
-                                        <h:commandButton class="is-fullwidth button is-link" value="Cadastrar"/>
+                                        <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}"/>
                                     </div>
                                 </div>
                             </h:form>

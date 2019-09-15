@@ -2,6 +2,7 @@ package br.edu.ifpb.controller;
 
 import br.edu.ifpb.model.domain.Funcionario;
 import br.edu.ifpb.model.service.FuncionarioIF;
+import br.edu.ifpb.model.service.FuncionarioService;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -10,8 +11,8 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 @Named("controladorFuncionario")
 public class ControladorFuncionario {
-    @EJB
-    private FuncionarioIF service;
+    
+    private  FuncionarioService service = new FuncionarioService() ;
     private Funcionario funcionario = new Funcionario();
     
     
