@@ -1,7 +1,6 @@
-
 package br.edu.ifpb.model.service;
-import br.edu.ifpb.model.domain.Funcionario;
 
+import br.edu.ifpb.model.domain.Funcionario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -28,19 +27,6 @@ public class FuncionarioService implements FuncionarioIF {
         em.remove(funcionario);
         transaction.commit();
 
-
-    }
-
-    public Funcionario buscar(int id) {
-
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
-        Funcionario funcionario;
-
-        funcionario = em.find(Funcionario.class, id);
-
-        transaction.commit();
-        return funcionario;
     }
 
     public void atualizar(Funcionario funcionario) {
@@ -91,6 +77,18 @@ public class FuncionarioService implements FuncionarioIF {
         Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
         List<Funcionario> resultList = createNativeQuery.getResultList();
         return resultList;
+    }
+
+    @Override
+    public Funcionario buscar(String cpf) {
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        Funcionario funcionario;
+
+        funcionario = em.find(Funcionario.class, cpf);
+
+        transaction.commit();
+        return funcionario;
     }
 
 }

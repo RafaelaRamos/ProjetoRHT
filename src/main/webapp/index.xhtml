@@ -28,21 +28,21 @@ and open the template in the editor.
                         <div class="columns has-text-left is-vcentered">
                             <div class="column is-4 is-offset-4">
                                 <div class="field">
-                                    <label class="label has-text-white">Pasep/Pis</label>
+                                    <label class="label has-text-white">Email</label>
                                     <div class="control">
-                                        <h:inputText class="input" required="true" />  
+                                        <h:inputText class="input" required="true"  value="#{controladorLogin.email}"/>  
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label class="label has-text-white">Senha</label>
                                     <div class="control">
-                                        <h:inputSecret class="input"/>
+                                        <h:inputSecret class="input" value="#{controladorLogin.senha}"/>
                                     </div>
                                 </div>
                                 
                                 <div class="columns has-text-right">
                                     <div class="column">
-                                        <h:commandButton class="button is-fullwidth is-info" value="Logar"/>
+                                        <h:commandButton class="button is-fullwidth is-info" value="Logar" action="#{controladorLogin.login()}"/>
                                     </div>
                                 </div>
                             </div>
