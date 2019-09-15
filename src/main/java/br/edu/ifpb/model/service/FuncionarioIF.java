@@ -15,9 +15,9 @@ public interface FuncionarioIF {
 
     public void atualizar(Funcionario funcionario);
 
-    public List<Funcionario> funcionariosPorcargo();
+    public List<Funcionario> funcionariosPorcargo( String cargo);
 
-    public List<Funcionario> funcionariosPorIdade();
+    public List<Funcionario> funcionariosPorCpf(String cpf);
 
     public List<Funcionario> funcionariosPorDepartamento(String departamento);
 

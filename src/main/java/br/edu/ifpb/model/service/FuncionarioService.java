@@ -91,4 +91,24 @@ public class FuncionarioService implements FuncionarioIF {
         return funcionario;
     }
 
+    @Override
+    public List<Funcionario> funcionariosPorcargo(String cargo) {
+       cargo = cargo.toLowerCase();
+      String consultasql = "SELECT * FROM Funcionario f where f.cargo = "+ cargo;
+        String sql = consultasql;
+        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
+        List<Funcionario> resultList = createNativeQuery.getResultList();
+        return resultList;
+    }
+
+    @Override
+    public List<Funcionario> funcionariosPorCpf(String cpf) {
+        
+        String consultasql = "SELECT * FROM Funcionario f where f.cpf ="+cpf;
+        String sql = consultasql;
+        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
+        List<Funcionario> resultList = createNativeQuery.getResultList();
+        return resultList;
+    }
+
 }

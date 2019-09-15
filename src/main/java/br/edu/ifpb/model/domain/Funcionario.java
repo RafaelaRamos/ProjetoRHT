@@ -1,6 +1,7 @@
 
 
 package  br.edu.ifpb.model.domain;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -9,16 +10,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
-import java.util.Timer;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Funcionario {
+public class Funcionario implements Serializable {
     @Id
     @GeneratedValue
     private long id;
@@ -53,9 +52,9 @@ public class Funcionario {
     @OneToMany
     private List<Dependente> dependentes;
 
-    public Funcionario(String nome, String foto, String filiacao) {
-        this.nome = nome;
-        this.foto = foto;
-        this.filiacao = filiacao;
+    public Funcionario(String cargo){
+   this.cargo = cargo.toLowerCase();
     }
-}
+    }
+    
+
