@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+        <link rel="stylesheet" href="css/bulma-pricetable.min.css"/>
+        <link rel="stylesheet" href="css/estilo.css"/>
+        <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="css/magnific-popup.css"/>
+
+    <link rel="stylesheet" href="css/aos.css"/>
+
+    <link rel="stylesheet" href="css/ionicons.min.css"/>
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css"/>
+    <link rel="stylesheet" href="css/jquery.timepicker.css"/>
+
+    
+    <link rel="stylesheet" href="css/flaticon.css"/>
+    <link rel="stylesheet" href="css/icomoon.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid px-md-4	">
+                <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="home.xhtml" class="nav-link">Inicio</a></li>
+                        <li class="nav-item active"><a href="cadastroFuncionario.xhtml" class="nav-link">Cadastro Funcionario</a></li>
+                        <li class="nav-item"><a href="listaFuncionarios.xhtml" class="nav-link">Listagem</a></li>
+                        <h:form class="nav-link">
+                            <li class="nav-item active">
+                                <h:commandLink class="nav-link has-text-warning">Sair</h:commandLink>
+                            </li>
+                        </h:form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END nav -->
+        
+        <div class="hero" style="background-image: url(images/bg_1.jpg);">
+            <div class="overlay"></div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="columns is-hcentered ftco-animate fadeInUp ftco-animated">
+                        <div class="column">
+                            <p class="subtitle has-text-white"></p>
+                            <br/>
+                            <h1 class="bread has-text-white">Cadastro de Funcionario</h1>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
+            <div class="container">
+
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-128x128">
+                                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <h:form>
+                                <h:inputHidden id="ID"/>
+                                <div class="field">
+                                    <label class="label">Nome</label>
+                                    <div class="control">
+                                        <h:inputText class="input"/>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Filiaçao</label>
+                                    <div class="control">
+                                        <h:inputText class="input"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Data de Nascimento</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Naturalidade</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Nacionalidade</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Genero</label>
+                                            <p class="control">
+                                                <span class="select is-fullwidth">
+                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                        <f:selectItem itemValue = "feminino" itemLabel = "Feminino" /> 
+                                                        <f:selectItem itemValue = "masculino" itemLabel = "Masculino" /> 
+                                                        <f:selectItem itemValue = "outro" itemLabel = "Outro" /> 
+                                                    </h:selectOneMenu> 
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">RG</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">CPF</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Estado Civil</label>
+                                            <p class="control">
+                                                <span class="select is-fullwidth">
+                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                        <f:selectItem itemValue = "solteiro" itemLabel = "Solteiro" /> 
+                                                        <f:selectItem itemValue = "casado" itemLabel = "Casado" />
+                                                    </h:selectOneMenu> 
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Telefone</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Titulo Eleitoral</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Reservista</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Escolaridade</label>
+                                            <p class="control">
+                                                <span class="select is-fullwidth">
+                                                    <h:selectOneMenu value = "#{userData.data}'"> 
+                                                        <f:selectItem itemValue = "SuperioCompleto" itemLabel = "Superior Completo" /> 
+                                                        <f:selectItem itemValue = "SuperioIncompleto" itemLabel = "Superior Incompleto" /> 
+                                                        <f:selectItem itemValue = "FundamentalCompleto" itemLabel = "Fundamental Completo" />
+                                                        <f:selectItem itemValue = "FundamentalIncompleto" itemLabel = "Fundamental Incompleto" />
+                                                    </h:selectOneMenu> 
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="column is-2">
+                                        <div class="field">
+                                            <label class="label">Tipo sanguineo</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Cargo</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Departamento</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Data de admissao</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Pasep/Pis</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">CTPS</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">PNE</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Ferias</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label class="label">Remuneraçao</label>
+                                            <div class="control">
+                                                <h:inputText class="input"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns has-text-left">
+                                    <div class="column is-2">
+                                        <h:commandButton class="is-fullwidth button is-link" value="Cadastrar"/>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+    </body>
+</html>

@@ -12,57 +12,42 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
-        <link rel="stylesheet" href="css/bulma-pricetable.min.css"/>
         <link rel="stylesheet" href="css/estilo.css"/>
-        
         <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </h:head>
     <h:body>
-        <div class="hero is-fullheight" style="background-image: url(images/image_1.jpg);">
+        <div class="hero is-fullheight" style="background-image: url(images/bg_1.jpg);">
             <div class="overlay"></div>
-            
-            <div class="hero-head">
-                <div class="container head has-text-white">
-                    NOMEDOSISTEMA
-                </div>
-            </div>
-            
             <!-- Hero content: will be in the middle -->
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <div class="columns is-hcentered is-gapless">
-                        <div class="column is-2">
-                            <h:commandLink>
-                                <div class="card card-fix-centered">
-                                    <div class="card-content">
-                                        <p class="subtitle">
-                                            <span class="icon is-large">
-                                                <i class="fas fa-lg fa-address-card"></i>
-                                            </span>
-                                            <br/>
-                                            Cadastrar Funcionario
-                                        </p>
+                    <h1 class="title has-text-white">
+                        Login
+                    </h1>
+                    <h:form>
+                        <div class="columns has-text-left is-vcentered">
+                            <div class="column is-4 is-offset-4">
+                                <div class="field">
+                                    <label class="label has-text-white">Pasep/Pis</label>
+                                    <div class="control">
+                                        <h:inputText class="input" required="true" />  
                                     </div>
                                 </div>
-                            </h:commandLink>
-                        </div>
-                        
-                        <div class="column is-2">
-                            <h:commandLink>
-                                <div class="card card-fix-centered">
-                                    <div class="card-content">
-                                        <p class="subtitle">
-                                            <span class="icon is-large">
-                                                <i class="fas fa-lg fa-clipboard-list"></i>
-                                            </span>
-                                            <br/>
-                                            Listar
-                                        </p>
+                                <div class="field">
+                                    <label class="label has-text-white">Senha</label>
+                                    <div class="control">
+                                        <h:inputSecret class="input"/>
                                     </div>
                                 </div>
-                            </h:commandLink>
+                                
+                                <div class="columns has-text-right">
+                                    <div class="column">
+                                        <h:commandButton class="button is-fullwidth is-info" value="Logar"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </h:form>    
                 </div>
             </div>
         </div>

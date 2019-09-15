@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+        <link rel="stylesheet" href="css/bulma-pricetable.min.css"/>
+        
+        <link rel="stylesheet" href="css/style.css"/>
+        
+        <link rel="stylesheet" href="css/estilo.css"/>
+        
+        <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid px-md-4	">
+                <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="home.xhtml" class="nav-link"> </a></li>
+                        <li class="nav-item"><a href="cadastroFuncionario.xhtml" class="nav-link"></a></li>
+                        <li class="nav-item active"><a href="listaFuncionarios.xhtml" class="nav-link"></a></li>
+                        <h:form class="nav-link">
+                            <li class="nav-item active">
+                                <h:commandLink class="nav-link has-text-warning">Sair</h:commandLink>
+                            </li>
+                        </h:form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="hero is-fullheight" style="background-image: url(images/image_1.jpg);">
+            <div class="overlay"></div>
+            
+            <!-- Hero content: will be in the middle -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="columns is-hcentered is-gapless">
+                        <div class="column is-2">
+                            <h:commandLink>
+                                <div class="card card-fix-centered">
+                                    <div class="card-content">
+                                        <p class="subtitle">
+                                            <span class="icon is-large">
+                                                <i class="fas fa-lg fa-address-card"></i>
+                                            </span>
+                                            <br/>
+                                            Cadastrar Funcionario
+                                        </p>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </div>
+                        
+                        <div class="column is-2">
+                            <h:commandLink>
+                                <div class="card card-fix-centered">
+                                    <div class="card-content">
+                                        <p class="subtitle">
+                                            <span class="icon is-large">
+                                                <i class="fas fa-lg fa-clipboard-list"></i>
+                                            </span>
+                                            <br/>
+                                            Listar
+                                        </p>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
