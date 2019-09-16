@@ -8,20 +8,21 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import lombok.EqualsAndHashCode;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @Entity
-
+@EqualsAndHashCode
 public class Dependente implements Serializable{
     @Id
     @GeneratedValue
     private long id;
     private String nome;
-    @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+    //@Temporal(TemporalType.DATE)
+    private String dataNascimento;
     private String cpf;
     private String parentesco;
 

@@ -55,6 +55,10 @@ a > .card:hover{
     margin-top: -10rem !important;
 }
 
+.card-header p{
+    margin-bottom: 0;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -102,6 +106,18 @@ a > .card:hover{
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+}
+
+.hero div.hero-foot .tabs ul{
+    margin-bottom: 0rem !important;
+}
+
+.tabs.is-boxed li.is-active a{
+    background-color: #f8f9fa !important;
+}
+
+.ftco-section {
+    padding-top: 2em;
 }
 .ftco-navbar-light {
     background: transparent !important;

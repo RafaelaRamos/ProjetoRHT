@@ -7,23 +7,17 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <head>
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
-        <link rel="stylesheet" href="css/bulma-pricetable.min.css"/>
-        <link rel="stylesheet" href="css/estilo.css"/>
         <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         
         <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"/>
     <link rel="stylesheet" href="css/animate.css"/>
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
-    <link rel="stylesheet" href="css/magnific-popup.css"/>
-
-    <link rel="stylesheet" href="css/aos.css"/>
 
     <link rel="stylesheet" href="css/ionicons.min.css"/>
 
@@ -34,8 +28,10 @@ and open the template in the editor.
     <link rel="stylesheet" href="css/flaticon.css"/>
     <link rel="stylesheet" href="css/icomoon.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    </head>
-    <body>
+
+    <link rel="stylesheet" href="css/estilo.css"/>
+    </h:head>
+    <h:body>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container-fluid px-md-4	">
                 <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
@@ -73,240 +69,299 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+            
+            <div class="hero-foot">
+                <nav class="tabs is-boxed is-fullwidth">
+                    <div class="container">
+                        <ul>
+                            <li class="tab is-active"><a href="cadastroFuncionario.xhtml">Funcionario</a></li>
+                            <li class="tab"><a href="cadastroDependentes.xhtml">Dependentes</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
 
         <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
             <div class="container">
                 
-                <h:form>
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-128x128">
-                                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
-                                </figure>
+                    <div class="container section">
+                        <h:form  enctype="multipart/form-data">
+                        <div id="tabPessoal" >
+                            <article class="media">
+                                <div class="media-left fotoperfil">
+                                    <figure class="image is-128x128">
+                                        <img id="fotoperfil" src="#{controladorFuncionario.funcionario.foto.imaagen}" alt="Image"/>
+                                    </figure>
+                                    <div class="file has-name">
+                                        <label class="file-label">
+                                            <h:inputFile class="file-input" value="#{controladorFuncionario.file}">
+                                                <f:ajax listener="#{controladorFuncionario.saveFoto()}" />
+                                            </h:inputFile>
+                                            <input id="file" class="file-input" type="file" accept="image/*" name="fotoPerfil"/>
+                                                <span class="file-cta">
+                                                    <span class="file-icon">
+                                                        <i class="fas fa-upload"></i>
+                                                    </span>
+                                                    <span class="file-label">
+                                                        Escolha uma foto
+                                                    </span>
+                                                </span>
+                                                <div id="filename" class="file-name">
+
+                                                </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="media-content">
+                                    <div class="field">
+                                        <label class="label">Nome</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Filiaçao</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.filiacao}"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="columns">
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Data de Nascimento</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" a:type="date" value="#{controladorFuncionario.funcionario.dataDeNascimento}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Naturalidade</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.naturalidade}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Nacionalidade</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.nacionalidade}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Genero</label>
+                                                <p class="control">
+                                                    <span class="select is-fullwidth">
+                                                        <h:selectOneMenu value = "#{controladorFuncionario.funcionario.genero}"> 
+                                                            <f:selectItem itemValue = "feminino" itemLabel = "Feminino" /> 
+                                                            <f:selectItem itemValue = "masculino" itemLabel = "Masculino" /> 
+                                                            <f:selectItem itemValue = "outro" itemLabel = "Outro" /> 
+                                                        </h:selectOneMenu> 
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="columns">
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">RG</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value ="#{controladorFuncionario.funcionario.rg}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">CPF</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.cpf}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Estado Civil</label>
+                                                <p class="control">
+                                                    <span class="select is-fullwidth">
+                                                        <h:selectOneMenu value = "#{controladorFuncionario.funcionario.estadoCivil}" > 
+                                                            <f:selectItem itemValue = "solteiro" itemLabel = "Solteiro" /> 
+                                                            <f:selectItem itemValue = "casado" itemLabel = "Casado" />
+                                                        </h:selectOneMenu> 
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Telefone</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.telefone}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="columns">
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Titulo Eleitoral</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.tituloEleitoral}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Reservista</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.certificadoReservista}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <label class="label">Escolaridade</label>
+                                                <p class="control">
+                                                    <span class="select is-fullwidth">
+                                                        <h:selectOneMenu value = "#{controladorFuncionario.funcionario.escolaridade}"> 
+                                                            <f:selectItem itemValue = "SuperioCompleto" itemLabel = "Superior Completo" /> 
+                                                            <f:selectItem itemValue = "SuperioIncompleto" itemLabel = "Superior Incompleto" /> 
+                                                            <f:selectItem itemValue = "FundamentalCompleto" itemLabel = "Fundamental Completo" />
+                                                            <f:selectItem itemValue = "FundamentalIncompleto" itemLabel = "Fundamental Incompleto" />
+                                                        </h:selectOneMenu> 
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="column is-2">
+                                            <div class="field">
+                                                <label class="label">Tipo sanguineo</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.tipoSanguineo}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>    
+                        </div>
+
+                        <div id="Empresarial">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Cargo</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.cargo}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Departamento</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.departamento}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Data de admissao</label>
+                                        <div class="control">
+                                            <h:inputText class="input" a:type="date" value="#{controladorFuncionario.funcionario.dataDeAdmissao}" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="media-content">
-                                <div class="field">
-                                    <label class="label">Nome</label>
-                                    <div class="control">
-                                        <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label">Filiaçao</label>
-                                    <div class="control">
-                                        <h:inputText class="input" value="#{controladorFuncionario.funcionario.filiacao}"/>
-                                    </div>
-                                </div>
 
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Data de Nascimento</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.dataDeNascimento}" converter="localDateConverter" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Naturalidade</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.naturalidade}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Nacionalidade</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.nacionalidade}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Genero</label>
-                                            <p class="control">
-                                                <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.genero}"> 
-                                                        <f:selectItem itemValue = "feminino" itemLabel = "Feminino" /> 
-                                                        <f:selectItem itemValue = "masculino" itemLabel = "Masculino" /> 
-                                                        <f:selectItem itemValue = "outro" itemLabel = "Outro" /> 
-                                                    </h:selectOneMenu> 
-                                                </span>
-                                            </p>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Pasep/Pis</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.pasepPis}"/>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">RG</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value ="#{controladorFuncionario.funcionario.rg}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">CPF</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.cpf}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Estado Civil</label>
-                                            <p class="control">
-                                                <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.estadoCivil}" > 
-                                                        <f:selectItem itemValue = "solteiro" itemLabel = "Solteiro" /> 
-                                                        <f:selectItem itemValue = "casado" itemLabel = "Casado" />
-                                                    </h:selectOneMenu> 
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Telefone</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.telefone}"/>
-                                            </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">CTPS</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Titulo Eleitoral</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.tituloEleitoral}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Reservista</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.certificadoReservista}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Escolaridade</label>
-                                            <p class="control">
-                                                <span class="select is-fullwidth">
-                                                    <h:selectOneMenu value = "#{controladorFuncionario.funcionario.escolaridade}"> 
-                                                        <f:selectItem itemValue = "SuperioCompleto" itemLabel = "Superior Completo" /> 
-                                                        <f:selectItem itemValue = "SuperioIncompleto" itemLabel = "Superior Incompleto" /> 
-                                                        <f:selectItem itemValue = "FundamentalCompleto" itemLabel = "Fundamental Completo" />
-                                                        <f:selectItem itemValue = "FundamentalIncompleto" itemLabel = "Fundamental Incompleto" />
-                                                    </h:selectOneMenu> 
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="column is-2">
-                                        <div class="field">
-                                            <label class="label">Tipo sanguineo</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.tipoSanguineo}"/>
-                                            </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">PcD</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.pnE}"/>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Cargo</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.cargo}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Departamento</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.departamento}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Data de admissao</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.dataDeAdmissao}"  converter="localDateConverter"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Pasep/Pis</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.pasepPis}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">CTPS</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">PcD</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.pnE}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="columns">
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Ferias</label>
-                                            <div class="control">
-                                                <h:inputText class="input"  value="#{controladorFuncionario.funcionario.ferias}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="field">
-                                            <label class="label">Remuneraçao</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{controladorFuncionario.funcionario.remuneracao}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="columns has-text-left">
-                                    <div class="column is-2">
-                                        <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}"/>
-                                    </div>
-                                </div>
-
                             </div>
-                        </article>
+
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Ferias</label>
+                                        <div class="control">
+                                            <h:inputText class="input"  value="#{controladorFuncionario.funcionario.ferias}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Remuneraçao</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.remuneracao}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        
+                        <br/>
+                        <div class="columns has-text-left">
+                            <div class="column is-2 is-offset-10">
+                                <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}"/>
+                            </div>
+                        </div>
+                        </h:form>
                     </div>
-                </h:form>
+                
             </div>
         </section>
-    </body>
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+            //exibe o src da imagem
+            var file = document.getElementById("file");
+            file.onchange = function () {
+                if (file.files.length > 0)
+                {
+                    document.getElementById('filename').innerHTML = file.files[0].name;
+                }
+            };
+            //altera a foto de exibição do perfil
+            $("#file").on('change', function () {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#fotoperfil').attr("src", e.target.result).fadeIn();
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        //]]>
+        </script>
+    </h:body>
 </html>
