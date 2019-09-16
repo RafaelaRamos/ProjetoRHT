@@ -127,3 +127,10 @@ a > .card:hover{
     right: 0;
     z-index: 3;
 }
+
+.dependentes{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.dependentes .columns{
+    margin-top: 0;
+}

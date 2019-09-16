@@ -16,6 +16,7 @@ public class FuncionarioService implements FuncionarioIF {
 
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
+        funcionario.getDependentes().forEach(d -> em.persist(d));
         em.persist(funcionario);
         transaction.commit();
     }

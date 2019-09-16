@@ -112,6 +112,28 @@ and open the template in the editor.
                                         pnE: #{controladorFuncionario.funcionario.pnE}</p>
                                 </div>
                             </div>
+                            
+                            <h5>Dependentes</h5>
+                            <c:forEach var="dep" items="#{controladorFuncionario.funcionario.dependentes}">
+                                <div class="dependentes">
+                                    <div class="columns">
+                                        <div class="column">
+                                            <p>Nome: #{dep.nome}</p>
+                                        </div>
+                                        <br/>
+                                        <div class="column">
+                                            <p>Parentesco: #{dep.parentesco}</p>
+                                        </div>
+                                        <div class="column">
+                                            <p>Nascimento: #{dep.dataNascimento}</p>
+                                        </div>
+                                        <div class="column">
+                                            <p>CPF: #{dep.cpf}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                            
                         </div>
                     </div>
                 </div>
