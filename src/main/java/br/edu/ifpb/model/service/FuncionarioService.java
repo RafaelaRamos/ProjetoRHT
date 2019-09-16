@@ -38,13 +38,7 @@ public class FuncionarioService implements FuncionarioIF {
         transaction.commit();
     }
 
-    public List<Funcionario> funcionariosPorcargo() {
-        String consultasql = "SELECT * FROM Funcionario";
-        String sql = consultasql;
-        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
-        List<Funcionario> resultList = createNativeQuery.getResultList();
-        return resultList;
-    }
+    
 
     public List<Funcionario> funcionariosPorIdade() {
         String consultasql = "SELECT * FROM Funcionario ORDER BY dataDeNascimento";
@@ -54,7 +48,7 @@ public class FuncionarioService implements FuncionarioIF {
         return resultList;
     }
 
-    public List<Funcionario> funcionariosPorDepartamento(String departamento) {
+   /* public List<Funcionario> funcionariosPorDepartamento(String departamento) {
         String consultasql = "SELECT * FROM Funcionario";
         String sql = consultasql;
         Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
@@ -64,16 +58,16 @@ public class FuncionarioService implements FuncionarioIF {
 
     public List<Funcionario> PorOrdemAlfabetica() {
 
-        String consultasql = "SELECT * FROM Funcionario ORDER BY nome";
+        String consultasql = "SELECT * FROM Funcionario ORDER BY nome ASC";
         String sql = consultasql;
         Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
         List<Funcionario> resultList = createNativeQuery.getResultList();
         return resultList;
-    }
+    }*/
 
     public List<Funcionario> funcionarios() {
-        String consultasql = "SELECT * FROM Funcionario";
-        String sql = consultasql;
+        
+        String sql = "SELECT * FROM Funcionario ORDER BY nome ASC";
         Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
         List<Funcionario> resultList = createNativeQuery.getResultList();
         return resultList;
@@ -89,6 +83,48 @@ public class FuncionarioService implements FuncionarioIF {
 
         transaction.commit();
         return funcionario;
+    }
+   
+
+    @Override
+    public Funcionario buscarPorID(Long id) {
+         EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        Funcionario funcionario;
+
+        funcionario = em.find(Funcionario.class, id);
+
+        transaction.commit();
+        return funcionario;
+    }
+
+    @Override
+    public List<Funcionario> funcionariosPorCpf(String cpf) {
+        cpf = "'"+cpf+"'";
+        String sql = "SELECT * FROM Funcionario f where f.cpf ="+cpf;
+        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
+        List<Funcionario> resultList = createNativeQuery.getResultList();
+        return resultList;
+    }
+
+    @Override
+    public List<Funcionario> funcionariosPorNome(String nome) {
+        //nome = nome.toUpperCase();
+        nome = "'"+nome+"'";
+        String sql = "SELECT * FROM Funcionario f where f.cpf ="+nome;
+        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
+        List<Funcionario> resultList = createNativeQuery.getResultList();
+        return resultList;
+    }
+    
+    @Override
+    public List<Funcionario> funcionariosPorcargo(String cargo) {
+       
+        cargo = "'"+cargo+"'";
+        String sql = "SELECT * FROM Funcionario f where f.cargo ="+cargo;
+        Query createNativeQuery = em.createNativeQuery(sql, Funcionario.class);
+        List<Funcionario> resultList = createNativeQuery.getResultList();
+        return resultList;
     }
 
 }

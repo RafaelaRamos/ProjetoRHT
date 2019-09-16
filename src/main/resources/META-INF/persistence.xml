@@ -2,9 +2,12 @@
 <persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <!-- Define Persistence Unit -->
   <persistence-unit name="RHT">
-    <class>br.edu.ifpb.documentos.Documento</class>
+    <class>br.edu.ifpb.documentos.DocumentoPDF</class>
+    <class>br.edu.ifpb.imagem.Imagem</class>
     <class>br.edu.ifpb.model.domain.Dependente</class>
+    <class>br.edu.ifpb.model.domain.Endereco</class>
     <class>br.edu.ifpb.model.domain.Funcionario</class>
+    <class>br.edu.ifpb.model.domain.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/rht"/>

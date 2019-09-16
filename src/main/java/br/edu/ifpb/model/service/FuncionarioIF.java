@@ -12,15 +12,18 @@ public interface FuncionarioIF {
     public void remover(int id);
 
     public Funcionario buscar(String cpf);
-
+    
+    public Funcionario buscarPorID(Long id);
+    
     public void atualizar(Funcionario funcionario);
 
-    public List<Funcionario> funcionariosPorcargo();
+    public List<Funcionario> funcionariosPorcargo(String cargo);
 
-    public List<Funcionario> funcionariosPorIdade();
+    public List<Funcionario> funcionariosPorCpf(String cpf);
+    public List<Funcionario> funcionariosPorNome(String nome);
 
-    public List<Funcionario> funcionariosPorDepartamento(String departamento);
+    public List<Funcionario> funcionarios();
 
-    public List<Funcionario> PorOrdemAlfabetica();
+   // public List<Funcionario> PorOrdemAlfabetica();
 
 }

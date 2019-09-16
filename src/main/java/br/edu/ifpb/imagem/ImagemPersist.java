@@ -1,8 +1,6 @@
 package br.edu.ifpb.imagem;
 
-import br.edu.ifpb.documentos.*;
-import br.edu.ifpb.documentos.Documento;
-import br.edu.ifpb.documentos.DocumentoIF;
+import java.awt.image.BufferedImage;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import javax.persistence.EntityManager;
@@ -20,12 +18,11 @@ public class ImagemPersist {
 
 
     private static Imagem imagem = new Imagem();
-    private ImagemPersist dp = new ImagemPersist();
     private static String nomeArquivoSaida;
     EntityManager em = Persistence.createEntityManagerFactory("RHT").createEntityManager();
 
 
-    public void salvar(Documento doc) {
+    public void salvar(Imagem doc) {
 
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
@@ -35,20 +32,22 @@ public class ImagemPersist {
 
     public static String upload( Part arquivo) {
 
-        nomeArquivoSaida = "/home/amanda/Documentos/ADS/RHT/uploads/imagens/"+ arquivo.getName();
+        //nomeArquivoSaida = "/home/amanda/Documentos/ADS/RHT/uploads/imagens/"+ arquivo.getName();
+        File diretorio = new File("/home/amanda/Documentos/ADS/RHT/uploads/imagens/");
         
         try {
-            InputStream is = arquivo.getInputStream();
-            OutputStream out = new FileOutputStream(nomeArquivoSaida);
+            
+            InputStream input = arquivo.getInputStream();
+            BufferedImage imagem = ImageIO.read(input);
 
-            int read = 0;
-            byte[] bytes = new byte[1024];
+            
+            System.out.println("Diretorio: " + diretorio);
 
-            while ((read = is.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
+            if (!diretorio.exists()) {
+                diretorio.mkdirs(); //mkdir() cria somente um diretório, mkdirs() cria diretórios e subdiretórios.
             }
 
-            imagem.setImaagen(nomeArquivoSaida);
+            ImageIO.write(imagem, "jpg", new File(diretorio + arquivo.getName() + ".jpg"));
             
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -56,6 +55,6 @@ public class ImagemPersist {
             e.printStackTrace();
         }
         
-        return nomeArquivoSaida;
+        return diretorio + arquivo.getName();
     }
 }

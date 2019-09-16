@@ -34,7 +34,7 @@ and open the template in the editor.
     <h:body>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container-fluid px-md-4	">
-                <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
+                <a class="navbar-brand" href="home.html">GFUNCI</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
@@ -86,19 +86,19 @@ and open the template in the editor.
             <div class="container">
                 
                     <div class="container section">
-                        <h:form  enctype="multipart/form-data">
+                        <h:form id="formFunc"  enctype="multipart/form-data">
                         <div id="tabPessoal" >
                             <article class="media">
                                 <div class="media-left fotoperfil">
                                     <figure class="image is-128x128">
-                                        <img id="fotoperfil" src="#{controladorFuncionario.funcionario.foto.imaagen}" alt="Image"/>
+                                        <img id="fotoperfil" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
                                     </figure>
                                     <div class="file has-name">
                                         <label class="file-label">
-                                            <h:inputFile class="file-input" value="#{controladorFuncionario.file}">
+                                            <h:inputFile id="file" class="file-input" value="#{controladorFuncionario.file}">
                                                 <f:ajax listener="#{controladorFuncionario.saveFoto()}" />
                                             </h:inputFile>
-                                            <input id="file" class="file-input" type="file" accept="image/*" name="fotoPerfil"/>
+                                            <!--<input id="file" class="file-input" type="file" accept="image/*" name="fotoPerfil"/>
                                                 <span class="file-cta">
                                                     <span class="file-icon">
                                                         <i class="fas fa-upload"></i>
@@ -106,7 +106,7 @@ and open the template in the editor.
                                                     <span class="file-label">
                                                         Escolha uma foto
                                                     </span>
-                                                </span>
+                                                </span> -->
                                                 <div id="filename" class="file-name">
 
                                                 </div>
@@ -117,7 +117,7 @@ and open the template in the editor.
                                     <div class="field">
                                         <label class="label">Nome</label>
                                         <div class="control">
-                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}"/>
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.nome}" required="true"/>
                                         </div>
                                     </div>
                                     <div class="field">
@@ -181,7 +181,7 @@ and open the template in the editor.
                                             <div class="field">
                                                 <label class="label">CPF</label>
                                                 <div class="control">
-                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.cpf}"/>
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.cpf}" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -331,7 +331,9 @@ and open the template in the editor.
                         <br/>
                         <div class="columns has-text-left">
                             <div class="column is-2 is-offset-10">
-                                <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}"/>
+                                <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}">
+                                    
+                                </h:commandButton>
                             </div>
                         </div>
                         </h:form>

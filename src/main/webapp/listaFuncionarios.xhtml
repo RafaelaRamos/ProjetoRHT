@@ -36,7 +36,7 @@ and open the template in the editor.
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container-fluid px-md-4	">
-                <a class="navbar-brand" href="home.html">NOMESISTEMA</a>
+                <a class="navbar-brand" href="home.html">GFUNCI</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span> Menu
                 </button>
@@ -73,19 +73,21 @@ and open the template in the editor.
                                             <div class="columns">
                                                 <div class="column is-3">
                                                     <div class="select is-fullwidth">
-                                                        <h:selectOneMenu value = "#{userData.data}'"> 
-                                                            <f:selectItem itemValue = "nome" itemLabel = "Nome" /> 
-                                                            <f:selectItem itemValue = "cargo" itemLabel = "Cargo" /> 
-                                                        </h:selectOneMenu> 
+                                                        <h:selectOneMenu value = "#{controladorFuncionario.filtro}" >
+                                                            <f:selectItem itemValue = "todos" itemLabel = "Todos" />
+                                                            <f:selectItem itemValue = "nome" itemLabel = "Nome" />
+                                                            <f:selectItem itemValue = "cpf" itemLabel = "CPF" /> 
+                                                            <f:selectItem itemValue = "cargo" itemLabel = "Cargo" />                           
+                                                </h:selectOneMenu> 
                                                     </div>
                                                 </div>
 
                                                 <div class="column">
-                                                    <h:inputText class="input"/>
+                                                    <h:inputText class="input" value = "#{controladorFuncionario.value}"/>
                                                 </div>
 
                                                 <div class="column is-2">
-                                                    <h:commandButton class="button is-fullwidth is-link" value="Buscar"/>
+                                                    <h:commandButton class="button is-fullwidth is-link" value="Buscar" action="#{controladorFuncionario.listar()}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,12 +104,12 @@ and open the template in the editor.
         
         <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
             <div class="container">
-                <c:forEach var="funcionario" items="#{controladorFuncionario.listarFuncionarios()}">
+                <c:forEach var="funcionario" items="#{controladorFuncionario.listaDeFuncionarios}">
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-128x128">
-                                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
+                                    <img class="is-rounded" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
                                 </figure>
                             </div>
 
@@ -116,14 +118,14 @@ and open the template in the editor.
                                     <p>
                                         <strong>#{funcionario.nome}</strong> <small>#{funcionario.cargo}</small>
                                         <br/>
-                                        Sobre: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                                            #{funcionario.telefone}
                                     </p>
                                 </div>
                                 <nav class="level is-mobile">
                                     <div class="level-left">
                                         <a class="level-item" aria-label="reply">
                                             <h:form>
-                                                <h:commandButton class="button is-link" value="ler mais"/>
+                                                <h:commandButton class="button is-link" action="#{controladorFuncionario.buscar(funcionario.id)}" value="ler mais"/>
                                             </h:form>
                                         </a>
                                     </div>
