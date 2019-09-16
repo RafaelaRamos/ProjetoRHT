@@ -1,6 +1,7 @@
 
 
 package  br.edu.ifpb.model.domain;
+import br.edu.ifpb.documentos.DocumentoPDF;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,9 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
-import java.util.Timer;
 
 @Getter
 @Setter
@@ -52,11 +51,10 @@ public class Funcionario implements Serializable{
     private String bairro;
     private String cidade;
     @OneToMany
+    @JoinColumn(name = "funcionario_id")
     private List<Dependente> dependentes;
-
-    public Funcionario(String nome, String foto, String filiacao) {
-        this.nome = nome;
-        this.foto = foto;
-        this.filiacao = filiacao;
-    }
+    @OneToOne
+    @JoinColumn(name = "funcionario_id")
+    private DocumentoPDF documento;
+   
 }

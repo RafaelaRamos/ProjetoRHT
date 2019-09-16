@@ -2,9 +2,9 @@ package br.edu.ifpb.controller;
 
 import lombok.Getter;
 import lombok.Setter;
-import br.edu.ifpb.documentos.Documento;
-import br.edu.ifpb.documentos.DocumentoIF;
-import br.edu.ifpb.documentos.DocPersisti;
+import br.edu.ifpb.documentos.Upload;
+import br.edu.ifpb.model.domain.Funcionario;
+import java.io.IOException;
 
 
 import javax.faces.bean.ManagedBean;
@@ -17,16 +17,28 @@ import javax.servlet.http.Part;
 @ManagedBean(name ="controlador")
 @ViewScoped
 public class ControladorDocumento {
-
-    private DocumentoIF doc = new DocPersisti();
+ 
     private Part arquivo;
-    private Documento documento;
+    private Funcionario f = new Funcionario();
+  
 
-    public void salvar() {
+   public void upload() throws IOException{
+      
 
-        doc.upload(arquivo);
+           Upload upload = Upload.getInstance();
+           upload.write(this.arquivo,this.f.getId());
+          
 
+   }
+
+    public Part getArquivo() {
+        return arquivo;
     }
+
+    public void setArquivo(Part arquivo) {
+        this.arquivo = arquivo;
+    }
+
 
 
 

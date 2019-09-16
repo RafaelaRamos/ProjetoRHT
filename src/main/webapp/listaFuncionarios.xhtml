@@ -73,19 +73,25 @@ and open the template in the editor.
                                             <div class="columns">
                                                 <div class="column is-3">
                                                     <div class="select is-fullwidth">
-                                                        <h:selectOneMenu value = "#{userData.data}'"> 
-                                                            <f:selectItem itemValue = "nome" itemLabel = "Nome" /> 
+                                                        <h:selectOneMenu value = "#{controladorFuncionario.filtro}" > 
+                                                            <f:selectItem itemValue = "nome" itemLabel = "Nome" />
+                                                            <f:selectItem itemValue = "todos" itemLabel = "Todos" />
+                                                            <f:selectItem itemValue = "cpf" itemLabel = "Cpf" /> 
                                                             <f:selectItem itemValue = "cargo" itemLabel = "Cargo" /> 
-                                                        </h:selectOneMenu> 
+                                                            
+                                                           
+                                                   
+                                                           
+                                                </h:selectOneMenu> 
                                                     </div>
                                                 </div>
 
                                                 <div class="column">
-                                                    <h:inputText class="input"/>
+                                                    <h:inputText class="input" value = "#{controladorFuncionario.value}"/>
                                                 </div>
 
                                                 <div class="column is-2">
-                                                    <h:commandButton class="button is-fullwidth is-link" value="Buscar"/>
+                                                    <h:commandButton class="button is-fullwidth is-link" value="Buscar" action="#{controladorFuncionario.listar()}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +108,7 @@ and open the template in the editor.
         
         <section class="ftco-section ftco-candidates ftco-candidates-2 bg-light">
             <div class="container">
-                <c:forEach var="funcionario" items="#{controladorFuncionario.listarFuncionarios()}">
+                <c:forEach var="funcionario" items="#{controladorFuncionario.listaDeFuncionarios}">
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
@@ -116,7 +122,7 @@ and open the template in the editor.
                                     <p>
                                         <strong>#{funcionario.nome}</strong> <small>#{funcionario.cargo}</small>
                                         <br/>
-                                        Sobre: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                                            #{funcionario.telefone}
                                     </p>
                                 </div>
                                 <nav class="level is-mobile">
