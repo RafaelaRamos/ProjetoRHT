@@ -27,7 +27,7 @@ public class Upload {
     private Upload() {
     }
 
-    public void write(Part part, String idUsuario) throws IOException {
+    public String write(Part part) throws IOException {
         String fileName = extractFileName(part);
         String filePath = "\\";
 
@@ -40,11 +40,7 @@ public class Upload {
         System.out.println(filePath + File.separator + fileName);
         String caminho = filePath + File.separator + fileName;
         String pasta = "C:\\payara5\\glassfish\\domains\\domain1\\generated\\jsp\\projetoRHT"+caminho;
-        this.doc.setCaminho(pasta);
-        this.f =this.service.buscar(idUsuario);
-               
-        this.f.setDocumento(doc);
-        this.service.salvar(f);
+        return pasta;
     }
 
     public String extractFileName(Part part) {

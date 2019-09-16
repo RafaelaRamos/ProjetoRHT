@@ -13,9 +13,9 @@ import javax.persistence.Id;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+//@Entity
 public class Usuario implements Serializable{
-    @Id
+    //@Id
     private String usuario;
     private String senha;
 }

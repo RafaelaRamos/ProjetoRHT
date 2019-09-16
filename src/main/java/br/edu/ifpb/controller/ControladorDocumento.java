@@ -26,7 +26,7 @@ public class ControladorDocumento {
       
 
            Upload upload = Upload.getInstance();
-           upload.write(this.arquivo,this.f.getCpf());
+           upload.write(this.arquivo);
           
 
    }

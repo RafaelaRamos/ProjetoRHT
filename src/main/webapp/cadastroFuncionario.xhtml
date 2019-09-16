@@ -91,13 +91,11 @@ and open the template in the editor.
                             <article class="media">
                                 <div class="media-left fotoperfil">
                                     <figure class="image is-128x128">
-                                        <img id="fotoperfil" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
+                                        <img id="fotoperfil" src="images/default-avatar.png" alt="Image"/>
                                     </figure>
                                     <div class="file has-name">
                                         <label class="file-label">
-                                            <h:inputFile id="file" class="file-input" value="#{controladorFuncionario.file}">
-                                                <f:ajax listener="#{controladorFuncionario.saveFoto()}" />
-                                            </h:inputFile>
+                                           
                                             <!--<input id="file" class="file-input" type="file" accept="image/*" name="fotoPerfil"/>
                                                 <span class="file-cta">
                                                     <span class="file-icon">
@@ -108,7 +106,7 @@ and open the template in the editor.
                                                     </span>
                                                 </span> -->
                                                 <div id="filename" class="file-name">
-
+                                                     <h:inputFile id="fileup" value="#{controladorFuncionario.arquivo}"/>
                                                 </div>
                                         </label>
                                     </div>
@@ -254,6 +252,32 @@ and open the template in the editor.
                         </div>
 
                         <div id="Empresarial">
+                             <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Rua/numero</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.rua}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Bairro</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.bairro}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Cidade</label>
+                                        <div class="control">
+                                            <h:inputText class="input" value="#{controladorFuncionario.funcionario.cidade}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="columns">
                                 <div class="column">
                                     <div class="field">
@@ -265,7 +289,7 @@ and open the template in the editor.
                                 </div>
                                 <div class="column">
                                     <div class="field">
-                                        <label class="label">Departamento</label>
+                                        <label class="label">Local de lotação</label>
                                         <div class="control">
                                             <h:inputText class="input" value="#{controladorFuncionario.funcionario.departamento}"/>
                                         </div>
@@ -278,10 +302,16 @@ and open the template in the editor.
                                             <h:inputText class="input" a:type="date" value="#{controladorFuncionario.funcionario.dataDeAdmissao}" />
                                         </div>
                                     </div>
-                                </div>
+                                </div><div class="column is-2">
+                                            <div class="field">
+                                                <label class="label">Jornada de Trabalho</label>
+                                                <div class="control">
+                                                    <h:inputText class="input" value="#{controladorFuncionario.funcionario.jornadaDeTrabalho}"/>
+                                                </div>
+                                            </div>
+                                        </div>
                             </div>
-
-                            <div class="columns">
+                                <div class="columns">
                                 <div class="column">
                                     <div class="field">
                                         <label class="label">Pasep/Pis</label>
@@ -308,6 +338,8 @@ and open the template in the editor.
                                 </div>
                             </div>
 
+                           
+
                             <div class="columns">
                                 <div class="column">
                                     <div class="field">
@@ -331,10 +363,21 @@ and open the template in the editor.
                         <br/>
                         <div class="columns has-text-left">
                             <div class="column is-2 is-offset-10">
-                                <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}">
+                                
+                                 <h:commandButton class="is-fullwidth button is-link" value="Cadastrar" action="#{controladorFuncionario.salvar()}" rendered="#{!controladorFuncionario.update}">
                                         
                                 </h:commandButton>
-                            </div>
+                               
+                                
+                        </div>
+                             <div class="column is-2 is-offset-10">
+                                
+                                  <h:commandButton class="is-fullwidth button is-link" value="atualizar" action="#{controladorFuncionario.atualizar()}" rendered="#{controladorFuncionario.update}">
+                                        
+                                </h:commandButton>
+                                
+                        </div>
+                            
                         </div>
                         </h:form>
                     </div>

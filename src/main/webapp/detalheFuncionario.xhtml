@@ -52,7 +52,7 @@ and open the template in the editor.
                 <div class="container has-text-centered">
                     <div class="columns is-hcentered ftco-animate fadeInUp ftco-animated">
                         <div class="column">
-                            <p class="subtitle has-text-white">Pode escrever alguma coisa pra ficar legal</p>
+                            <p class="subtitle has-text-white">Informações gerais</p>
                             <br/>
                         </div>
                     </div>
@@ -66,16 +66,12 @@ and open the template in the editor.
                     <div class="card">
                         <div class="card-content">
                             <div class="columns">
-                                <div class=" column is-2">
-                                    <figure class="image is-128x128">
-                                        <img class="image" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
-                                    </figure>
-                                </div>
+                                
                                 <div class="column">
                                     <h4>#{controladorFuncionario.funcionario.nome}</h4>
                                     <p>#{controladorFuncionario.funcionario.genero}, #{controladorFuncionario.funcionario.nacionalidade}, natural de #{controladorFuncionario.funcionario.naturalidade}, 
-                                        #{controladorFuncionario.funcionario.estadoCivil} - idade | #{controladorFuncionario.funcionario.rua}, #{controladorFuncionario.funcionario.numero}, #{controladorFuncionario.funcionario.bairro}, 
-                                        #{controladorFuncionario.funcionario.cidade}</p>
+                                        #{controladorFuncionario.funcionario.estadoCivil} - idade | rua:#{controladorFuncionario.funcionario.rua},bairro: #{controladorFuncionario.funcionario.bairro}, Cidade: #{controladorFuncionario.funcionario.cidade}</p>
+                             
                                     
                                     <div class="columns">
                                         <div class="column">
@@ -99,17 +95,23 @@ and open the template in the editor.
                                     <p>Data de admissao: #{controladorFuncionario.funcionario.dataDeAdmissao}<br/>
                                         Cargo: #{controladorFuncionario.funcionario.cargo}<br/>
                                         Pasep/Pis: #{controladorFuncionario.funcionario.pasepPis}<br/>
-                                        Filiaçao: #{controladorFuncionario.funcionario.filiacao}</p>
+                                        Filiaçao: #{controladorFuncionario.funcionario.filiacao}
+                                      
+                                    
+                                    </p>
                                 </div>
                                 <div class="column">
                                     <p>Jornada de Trabalho: #{controladorFuncionario.funcionario.jornadaDeTrabalho}<br/>
-                                        Departamento: #{controladorFuncionario.funcionario.departamento}<br/>
+                                        Local de Lotacao: #{controladorFuncionario.funcionario.departamento}<br/>
                                         CTPS: #{controladorFuncionario.funcionario.ctps}</p>
                                 </div>
                                 <div class="column">
                                     <p>Ferias: #{controladorFuncionario.funcionario.ferias}<br/>
                                         Remuneraçao: #{controladorFuncionario.funcionario.remuneracao}<br/>
-                                        pnE: #{controladorFuncionario.funcionario.pnE}</p>
+                                        pnE: #{controladorFuncionario.funcionario.pnE}<br/>
+                                        <h:outputLink value="#{controladorFuncionario.funcionario.documento}" >Arquivos Adicionais</h:outputLink>
+                                      
+                                    </p>
                                 </div>
                             </div>
                             
@@ -133,6 +135,9 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </c:forEach>
+                             <h:form>
+                                   <h:commandButton class="button is-link" action="#{controladorFuncionario.remover(funcionario.id)}" value="Remover"/>
+                            </h:form>
                             
                         </div>
                     </div>

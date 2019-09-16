@@ -13,7 +13,7 @@ public class UsuarioService {
 
 
     public Boolean autenticar(String usuario, String senha) {
-        Usuario user = new Usuario();
+        /*Usuario user = new Usuario();
         usuario= "'"+ usuario +"'";
         senha= "'"+ senha +"'";
         try {
@@ -27,7 +27,16 @@ public class UsuarioService {
             ex.printStackTrace();
             return false;
         }
+        return true;*/
+        
+        if(usuario.equals("admin") && senha.equals("123")){
+        
         return true;
+        }
+        else{
+            return false;
+        
+        }
     }
 
 

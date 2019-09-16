@@ -63,7 +63,7 @@ and open the template in the editor.
                 <div class="container has-text-centered">
                     <div class="columns is-hcentered ftco-animate fadeInUp ftco-animated">
                         <div class="column">
-                            <p class="subtitle has-text-white">Pode escrever alguma coisa pra ficar legal</p>
+                            <p class="subtitle has-text-white">Utilize os filtros para um acesso mais rapido</p>
                             <br/>
                             <!-- START caixa de busca -->
                             <h:form>
@@ -107,11 +107,7 @@ and open the template in the editor.
                 <c:forEach var="funcionario" items="#{controladorFuncionario.listaDeFuncionarios}">
                     <div class="box">
                         <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-128x128">
-                                    <img class="is-rounded" src="#{controladorFuncionario.funcionario.foto}" alt="Image"/>
-                                </figure>
-                            </div>
+                            
 
                             <div class="media-content">
                                 <div class="content">
@@ -127,6 +123,7 @@ and open the template in the editor.
                                             <h:form>
                                                 <h:commandButton class="button is-link" action="#{controladorFuncionario.buscar(funcionario.id)}" value="ler mais"/>
                                             </h:form>
+                                            
                                         </a>
                                     </div>
                                 </nav>

@@ -9,7 +9,7 @@ public interface FuncionarioIF {
 
     public void salvar(Funcionario funcionario);
 
-    public void remover(int id);
+    public void remover(Long id);
 
     public Funcionario buscar(String cpf);
     
